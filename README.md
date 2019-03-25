@@ -1,4 +1,9 @@
+
 # TopColleguesFront
+
+[![Build Status](https://travis-ci.org/yoannMerca/top-collegues-front.svg?branch=master)](https://travis-ci.org/yoannMerca/top-collegues-front)
+
+https://yoannmerca.github.io/top-collegues-front/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
