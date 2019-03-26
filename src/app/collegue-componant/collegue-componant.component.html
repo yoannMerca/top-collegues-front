@@ -1,4 +1,4 @@
 <img [src]=collegue.photo alt="" />
-<p>{{collegue.pseudo}}</p>
+<p>{{collegue.pseudo | uppercase}}</p>
 <p>{{collegue.score}} <img src="http://pluspng.com/img-png/png-coeur-rose-click-to-enlarge-479.png" height="20" width="20"></p>
 <app-avis (change)="check($event)" [likeActivated]="likeActivated" [dislikeActivated]="dislikeActivated"></app-avis>
