@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue, Avis } from '../models';
+import { ScorePipe } from '../pipes/score.pipe';
 
 @Component({
   selector: 'app-collegue-component',
   templateUrl: './collegue-componant.component.html',
-  styleUrls: ['./collegue-componant.component.css']
+  styleUrls: ['./collegue-componant.component.css'],
+  providers: [ScorePipe],
 })
 
 export class CollegueComponent implements OnInit {
@@ -25,10 +27,10 @@ export class CollegueComponent implements OnInit {
       if (this.collegue.score === 200) {
         this.likeActivated = false;
       }
-    } else if (Avis.DETESTER === a && this.collegue.score > 100) {
+    } else if (Avis.DETESTER === a && this.collegue.score > -100) {
       this.collegue.score -= 10;
       this.likeActivated = true;
-      if (this.collegue.score === 100) {
+      if (this.collegue.score === -100) {
         this.dislikeActivated = false;
       }
     }

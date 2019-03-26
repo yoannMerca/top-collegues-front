@@ -7,10 +7,12 @@ import { AvisComponent } from './avis/avis.component';
 import { CollegueComponent } from './collegue-componant/collegue-componant.component';
 import { ListeColleguesComponent } from './liste-collegues/liste-collegues.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ScorePipe } from './pipes/score.pipe';
+import { PagePipe } from './pipes/page.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, TestcssComponent, AvisComponent, CollegueComponent, ListeColleguesComponent, AccueilComponent],
+  declarations: [AppComponent, TestcssComponent, AvisComponent, CollegueComponent, ListeColleguesComponent, AccueilComponent, ScorePipe, PagePipe],
   imports: [BrowserModule,
   NgbModule,
   ],

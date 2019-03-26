@@ -7,12 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListeColleguesComponent implements OnInit {
   @Input() listCollegue;
+  page = 1;
 
-  constructor() {
-    console.log(this.listCollegue);
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
