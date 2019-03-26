@@ -8,11 +8,19 @@ import { CollegueComponent } from './collegue-componant/collegue-componant.compo
 import { ListeColleguesComponent } from './liste-collegues/liste-collegues.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ScorePipe } from './pipes/score.pipe';
-import { PagePipe } from './pipes/page.pipe';
+import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, TestcssComponent, AvisComponent, CollegueComponent, ListeColleguesComponent, AccueilComponent, ScorePipe, PagePipe],
+  declarations: [AppComponent,
+    TestcssComponent,
+    AvisComponent,
+    CollegueComponent,
+    ListeColleguesComponent,
+    AccueilComponent,
+    ScorePipe,
+    HistoriqueVotesComponent],
   imports: [BrowserModule,
   NgbModule,
   ],
