@@ -1,4 +1,5 @@
 <div>
-  <button class="btn btn-primary" (click)="avis('Avis.AIMER')">J'aime</button>
-  <button class="btn btn-warning" (click)="avis('Avis.DETESTER')">Je deteste</button>
+  <button class="btn btn-primary" (click)=avis(Avis.AIMER) [disabled]="!likeActivated">J'aime</button>
+  <button class="btn btn-warning" (click)=avis(Avis.DETESTER) [disabled]="!dislikeActivated">Je deteste</button>
+
 </div>

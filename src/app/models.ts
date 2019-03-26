@@ -1,10 +1,10 @@
-interface Collegue {
+export interface Collegue {
   photo: string;
   pseudo: string;
   score: number;
 }
 
-enum Avis {
+export enum Avis {
   AIMER,
   DETESTER
 }
