@@ -1,8 +1,8 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Histrique</a>
+  <a class="navbar-brand" href="#">Historique</a>
 </nav>
-<div *ngFor="let item of listeVotes">
+<div *ngFor="let item of listeVotes; let i = index">
   <p>{{item.collegue.pseudo}}</p>
-  <p><img [src]="item.collegue.photo" alt="Smiley face" height="50" width="42"> {{item.collegue.pseudo}} est {{avis[item.avis] | lowercase}} sont score est maintenat de {{item.collegue.score}}</p>
-  <button>Supprimer</button>
+  <p><img [src]="item.collegue.photo" alt="" height="50" width="42"> {{item.collegue.pseudo}} est {{avis[item.avis] | lowercase}} sont score est maintenat de {{item.collegue.score}}</p>
+  <button (click)=sup(i)>Supprimer</button>
 </div>

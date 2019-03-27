@@ -46,9 +46,4 @@ export const collegues: Collegue[] = [
     photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/LouisWWATchile.jpg/330px-LouisWWATchile.jpg',
     pseudo: 'Louis Tomlinson'
   },
-  {
-    score: 120,
-    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Zayn_Wiki.jpg/330px-Zayn_Wiki.jpg',
-    pseudo: 'Zayn Malik'
-  }
 ];
