@@ -10,7 +10,10 @@ import { DataService } from '../services/data.service';
 export class AccueilComponent implements OnInit {
   listCollegues;
   constructor(private data: DataService) {
-    this.listCollegues = this.data.lister();
+    this.data.lister().subscribe(
+      liste => this.listCollegues = liste,
+      error => alert(`la recuperation des doneees ne s'est pas bien passe` + error)
+      );
    }
 
   ngOnInit() {

@@ -8,12 +8,14 @@ import { Vote, Avis } from './../models';
   styleUrls: ['./historique-votes.component.css']
 })
 export class HistoriqueVotesComponent implements OnInit {
- listeVotes: Vote[];
+ listeVotes: Vote[] = [];
  avis = Avis;
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.listeVotes = this.data.listerVotes();
+    this.data.listerVotes().subscribe(vote =>
+      this.listeVotes.unshift(vote)
+      );
   }
   sup(index) {
     console.log(index);

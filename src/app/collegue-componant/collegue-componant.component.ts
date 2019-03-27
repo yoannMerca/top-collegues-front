@@ -19,13 +19,19 @@ export class CollegueComponent implements OnInit {
   ngOnInit() {}
   check(a: Avis): void {
     if (Avis.AIMER === a && this.collegue.score < 200) {
-      this.collegue.score = this.data.donnerUnAvis(this.collegue, a ).score;
+      this.data
+        .donnerUnAvis(this.collegue, a)
+        .subscribe(value => (this.collegue = value),
+        error => alert(`oservable n'a pas fonctionne ` + error));
       this.dislikeActivated = true;
       if (this.collegue.score === 200) {
         this.likeActivated = false;
       }
     } else if (Avis.DETESTER === a && this.collegue.score > -100) {
-      this.collegue.score = this.data.donnerUnAvis(this.collegue, a).score;
+      this.data
+        .donnerUnAvis(this.collegue, a)
+        .subscribe(value => (this.collegue = value),
+          error => alert(`oservable n'a pas fonctionne ` + error));
       this.likeActivated = true;
       if (this.collegue.score === -100) {
         this.dislikeActivated = false;

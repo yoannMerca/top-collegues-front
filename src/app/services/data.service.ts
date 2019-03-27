@@ -1,32 +1,31 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
 import { collegues } from '../collegues';
+import { Observable, of, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   listeCollegues: Collegue[] = collegues;
-  private listeVotes: Vote[] = [];
+  private listeVotes = new Subject<Vote>();
 
   constructor() {}
-  lister(): Collegue[] {
-    return this.listeCollegues;
+
+  lister(): Observable<Collegue[]> {
+    return of(this.listeCollegues);
   }
 
-  donnerUnAvis(collegue: Collegue, a: Avis): Collegue {
+  donnerUnAvis(collegue: Collegue, a: Avis): Observable<Collegue> {
     if (Avis.AIMER === a && collegue.score < 200) {
       collegue.score += 10;
     } else if (Avis.DETESTER === a && collegue.score > -100) {
       collegue.score -= 10;
     }
-    return collegue;
+    this.listeVotes.next({collegue, avis: a});
+    return of(collegue);
   }
-  listerVotes(): Vote[] {
-    const votes: Vote[] = [
-      { collegue : this.listeCollegues[0], avis : Avis.AIMER},
-      { collegue: this.listeCollegues[2], avis: Avis.AIMER },
-      { collegue: this.listeCollegues[1], avis: Avis.DETESTER }
-  ];
-    return votes;
+
+  listerVotes(): Observable<Vote> {
+    return this.listeVotes.asObservable();
   }
 }
