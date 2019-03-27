@@ -1,11 +1,10 @@
-<button>Rafraichir la liste</button>
-<div class="row">
-<div class="col-9">
-  <app-liste-collegues [listCollegue]="listCollegues"></app-liste-collegues>
-</div>
+<button type="button" class="btn btn-secondary">Rafraichir la liste</button>
+<div class="row mtop50">
+  <div class="col-md-8 col-xs-12">
+    <app-liste-collegues [listCollegue]="listCollegues"></app-liste-collegues>
+  </div>
 
-<div class="col-3">
-  <app-historique-votes></app-historique-votes>
+  <div class="col-md-3 offset-md-1 col-xs-12">
+    <app-historique-votes></app-historique-votes>
+  </div>
 </div>
-</div>
-

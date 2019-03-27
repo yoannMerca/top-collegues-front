@@ -1,8 +1,15 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Historique</a>
 </nav>
-<div *ngFor="let item of listeVotes; let i = index">
-  <p>{{item.collegue.pseudo}}</p>
-  <p><img [src]="item.collegue.photo" alt="" height="50" width="42"> {{item.collegue.pseudo}} est {{avis[item.avis] | lowercase}} sont score est maintenat de {{item.collegue.score}}</p>
-  <button (click)=sup(i)>Supprimer</button>
-</div>
+<ul class="list-unstyled mtop50" *ngFor="let item of listeVotes; let i = index">
+  <li class="media">
+    <img class="mr-3" [src]="item.collegue.photo" alt="Generic placeholder image" height="50" width="42">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{item.collegue.pseudo}}</h5>
+      {{item.collegue.pseudo}} est {{avis[item.avis] | lowercase}} sont score est maintenat de {{item.collegue.score}}
+      <button (click)=sup(i) type="button" class="btn btn-outline-dark">Supprimer</button>
+    </div>
+  </li>
+</ul>
+
+

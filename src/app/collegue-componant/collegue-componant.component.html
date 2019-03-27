@@ -1,4 +1,17 @@
-<img [src]=collegue.photo alt="" height="300" width="200"/>
+<div class="card">
+  <img class="card-img-top" [src]=collegue.photo alt=""  height="300" >
+  <div class="card-body">
+    <h5 class="card-title">{{collegue.pseudo | uppercase}}</h5>
+    <p class="card-text">{{collegue.score | score}} <img src="http://pluspng.com/img-png/png-coeur-rose-click-to-enlarge-479.png" height="20"
+      width="20"></p>
+
+  <app-avis (change)="check($event)" [likeActivated]="likeActivated" [dislikeActivated]="dislikeActivated"></app-avis>
+  </div>
+</div>
+
+
+
+<!-- <img [src]=collegue.photo alt="" height="300" width="200"/>
 <p>{{collegue.pseudo | uppercase}}</p>
 <p>{{collegue.score | score}} <img src="http://pluspng.com/img-png/png-coeur-rose-click-to-enlarge-479.png" height="20" width="20"></p>
-<app-avis (change)="check($event)" [likeActivated]="likeActivated" [dislikeActivated]="dislikeActivated"></app-avis>
+<app-avis (change)="check($event)" [likeActivated]="likeActivated" [dislikeActivated]="dislikeActivated"></app-avis> -->
