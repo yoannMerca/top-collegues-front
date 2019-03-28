@@ -18,7 +18,7 @@ export class AccueilComponent implements OnInit {
       error => alert(`la recuperation des doneees ne s'est pas bien passe` + error)
     );
   }
-  rafraichir(){
+  rafraichir() {
     this.data
       .lister()
       .subscribe(
