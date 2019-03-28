@@ -18,5 +18,15 @@ export class AccueilComponent implements OnInit {
       error => alert(`la recuperation des doneees ne s'est pas bien passe` + error)
     );
   }
-
+  rafraichir(){
+    this.data
+      .lister()
+      .subscribe(
+        liste => (this.listCollegues = liste),
+        error =>
+          alert(
+            `la recuperation des doneees ne s'est pas bien passe` + error
+          )
+      );
+  }
 }
