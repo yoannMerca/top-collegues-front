@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Collegue, Avis, Vote } from '../models';
 import { collegues } from '../collegues';
 import { Observable, of, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,20 +11,21 @@ export class DataService {
   listeCollegues: Collegue[] = collegues;
   private listeVotes = new Subject<Vote>();
 
-  constructor() {}
+  constructor( private http: HttpClient) {
+  }
+
 
   lister(): Observable<Collegue[]> {
-    return of(this.listeCollegues);
+    const URL_BACKEND = environment.backendUrl + 'collegues';
+    return this.http.get<Collegue[]>(URL_BACKEND);
   }
 
   donnerUnAvis(collegue: Collegue, a: Avis): Observable<Collegue> {
-    if (Avis.AIMER === a && collegue.score < 200) {
-      collegue.score += 10;
-    } else if (Avis.DETESTER === a && collegue.score > -100) {
-      collegue.score -= 10;
-    }
-    this.listeVotes.next({collegue, avis: a});
-    return of(collegue);
+    const URL_BACKEND = environment.backendUrl + 'collegues/' + collegue.pseudo;
+    return this.http.patch<Collegue>(URL_BACKEND,
+      {
+        action : a
+      });
   }
 
   listerVotes(): Observable<Vote> {
