@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../services/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-accueil',
@@ -9,7 +10,7 @@ import { DataService } from '../services/data.service';
 })
 export class AccueilComponent implements OnInit {
   listCollegues;
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private modalService: NgbModal) {
    }
 
   ngOnInit() {

@@ -4,6 +4,7 @@ import { collegues } from '../collegues';
 import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +24,12 @@ export class DataService {
 
   donnerUnAvis(collegue: Collegue, a: Avis): Observable<Collegue> {
     const URL_BACKEND = environment.backendUrl + 'collegues/' + collegue.pseudo;
-    return this.http.patch<Collegue>(URL_BACKEND,
-      {
-        action : a
-      });
-  }
+    return this.http
+      .patch<Collegue>(URL_BACKEND, {
+        action: a
+      })
+      .pipe(tap(col => this.listeVotes.next({collegue : col , avis : a }))
+      )}
 
   listerVotes(): Observable<Vote> {
     return this.listeVotes.asObservable();
