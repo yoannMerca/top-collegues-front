@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import {  Router } from '@angular/router';
 
 class CollegueForm {
   matricule: string;
@@ -16,7 +17,7 @@ class CollegueForm {
 
 export class NouveauCollegueTemplateFormComponent implements OnInit {
   newCollegue: CollegueForm = new CollegueForm();
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private router: Router) {}
   err = false;
   message: string;
   type: string;
@@ -33,6 +34,9 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
           this.type = 'success',
           this.message = 'le collegue à bien été créé',
           this.err = true;
+          setTimeout(() => {
+            this.router.navigate(['/accueil']);
+          }, 1000);
         },
         error => {
           this.type = 'warning';

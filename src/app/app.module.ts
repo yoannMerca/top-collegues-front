@@ -13,9 +13,14 @@ import { CompteurVotesComponent } from './compteur-votes/compteur-votes.componen
 import { HttpClientModule } from '@angular/common/http';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
 import { FormsModule } from '@angular/forms';
-
+import { PseudoMatriculeValidatorDirective } from './validators/pseudo-matricule-validator.directive';
+import { MenuComponent } from './menu/menu.component';
+import { ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
+import { DescriptionComponent } from './description/description.component';
 @NgModule({
-  declarations: [AppComponent,
+  declarations: [
+    AppComponent,
     TestcssComponent,
     AvisComponent,
     CollegueComponent,
@@ -24,11 +29,17 @@ import { FormsModule } from '@angular/forms';
     ScorePipe,
     HistoriqueVotesComponent,
     CompteurVotesComponent,
-    NouveauCollegueTemplateFormComponent],
-  imports: [BrowserModule,
-  NgbModule,
-  HttpClientModule,
-    FormsModule
+    NouveauCollegueTemplateFormComponent,
+    PseudoMatriculeValidatorDirective,
+    MenuComponent,
+    DescriptionComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

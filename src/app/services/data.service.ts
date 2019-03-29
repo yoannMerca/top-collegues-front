@@ -5,6 +5,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { tap } from 'rxjs/operators';
+import { PapaCollegue } from '../PapaCollegue';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,10 @@ export class DataService {
       nom : ps,
       photo : img
     });
+  }
+
+  getOneUserByPseudo(pseudo: string): Observable<PapaCollegue> {
+    const URL_BACKEND = environment.backendUrl + 'collegues/' + pseudo;
+    return this.http.get<PapaCollegue>(URL_BACKEND);
   }
 }
