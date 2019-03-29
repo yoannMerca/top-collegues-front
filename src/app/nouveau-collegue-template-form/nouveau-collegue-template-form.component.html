@@ -1,0 +1,17 @@
+<h1>Formulaire inscription nouveau collegue</h1>
+<form (ngSubmit)="submit()" [ngFormOptions]="{updateOn: 'blur'}" #myForm="ngForm">
+<div class="form-group">
+  <label>Matricule</label><input class="form-control form-control-lg" type="text" [(ngModel)]="newCollegue.matricule" name="matricule" #mat="ngModel" required>
+</div>
+<p *ngIf="err">
+  <ngb-alert [type]="type" (close)="close()">{{ message }}</ngb-alert>
+</p>
+<div class="form-group">
+  <label>Pseudo</label><input class="form-control form-control-lg" type="text" [(ngModel)]="newCollegue.pseudo" name="pseudo" #ps="ngModel" required minlength="3">
+</div>
+<div class="form-group">
+  <label>URL image</label><input class="form-control form-control-lg" type="text" [(ngModel)]="newCollegue.image" name="image" >
+</div>
+  <button type="submit" class="btn btn-secondary" [disabled]="mat.invalid || ps.invalid">Submit</button>
+</form>
+

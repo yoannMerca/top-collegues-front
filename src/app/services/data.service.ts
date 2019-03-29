@@ -29,9 +29,19 @@ export class DataService {
         action: a
       })
       .pipe(tap(col => this.listeVotes.next({collegue : col , avis : a }))
-      )}
+      )
+    }
 
   listerVotes(): Observable<Vote> {
     return this.listeVotes.asObservable();
+  }
+
+  insertNewCollegue(mat: string, ps: string , img: string ): Observable<Collegue> {
+    const URL_BACKEND = environment.backendUrl + 'collegues';
+    return this.http.post<Collegue>(URL_BACKEND, {
+      matricule : mat,
+      nom : ps,
+      photo : img
+    });
   }
 }
