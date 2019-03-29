@@ -5,6 +5,7 @@ import { DescriptionComponent } from './description/description.component';
 
 
 export const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'accueil' },
         { path: 'accueil', component: AccueilComponent },
         { path: 'form', component: NouveauCollegueTemplateFormComponent },
         { path: 'collegues/:pseudo', component: DescriptionComponent },

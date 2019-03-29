@@ -3,5 +3,4 @@ export interface PapaCollegue {
   nom: string;
   prenom: number;
   email: string;
-  dateNaissance: string;
 }
