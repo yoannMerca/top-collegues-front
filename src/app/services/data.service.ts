@@ -47,7 +47,7 @@ export class DataService {
   }
 
   getOneUserByPseudo(pseudo: string): Observable<PapaCollegue> {
-    const URL_BACKEND = environment.backendUrl + 'collegues/' + pseudo;
+    const URL_BACKEND = environment.backendUrl + 'collegues/?pseudo=' + pseudo;
     return this.http.get<PapaCollegue>(URL_BACKEND);
   }
 }

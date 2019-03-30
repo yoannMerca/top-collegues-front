@@ -1,6 +1,7 @@
 export interface PapaCollegue {
-  matricule: string;
-  nom: string;
-  prenom: number;
+  pseudo: string;
+  prenom: string;
+  score: number;
   email: string;
+  photo: string;
 }

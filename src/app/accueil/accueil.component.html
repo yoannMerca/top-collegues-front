@@ -1,5 +1,8 @@
 <button type="button" class="btn btn-secondary" (click)=rafraichir()>Rafraichir la liste</button>
 <app-compteur-votes></app-compteur-votes>
+<p *ngIf="err">
+  <ngb-alert [type]="type" (close)="close()">{{ message }}</ngb-alert>
+</p>
 <div class="row mtop50">
   <div class="col-md-8 col-xs-12">
     <app-liste-collegues [listCollegue]="listCollegues"></app-liste-collegues>
