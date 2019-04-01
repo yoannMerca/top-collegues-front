@@ -18,7 +18,13 @@ export class DescriptionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private data: DataService) { }
 
   ngOnInit() {
-
+    this.collegue = {
+      pseudo: '',
+      prenom: '',
+      score: 0,
+      email: '',
+      photo: '',
+    }
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.pseudo = params.get('pseudo');
     });

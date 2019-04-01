@@ -18,7 +18,8 @@ export class CollegueComponent implements OnInit {
   }
 
   ngOnInit() {}
-  display(pseudo: string){
+
+  display(pseudo: string) {
     this.router.navigate(['/collegues/' + pseudo]);
   }
 

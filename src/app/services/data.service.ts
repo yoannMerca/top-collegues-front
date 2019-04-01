@@ -29,8 +29,7 @@ export class DataService {
       .patch<Collegue>(URL_BACKEND, {
         action: a
       })
-      .pipe(tap(col => this.listeVotes.next({collegue : col , avis : a }))
-      )
+      .pipe(tap(col => this.listeVotes.next({collegue : col , avis : a })));
     }
 
   listerVotes(): Observable<Vote> {

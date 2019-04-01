@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import {  Router } from '@angular/router';
+import { ValidationErrors } from '@angular/forms';
 
 class CollegueForm {
   matricule: string;
@@ -21,7 +22,19 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
   err = false;
   message: string;
   type: string;
-  ngOnInit() {}
+
+  ngOnInit() {
+  }
+  check(error: ValidationErrors | null) {
+    if (error != null && error.pseudoMatriculeIdentique && this.newCollegue.pseudo != null) {
+        this.type = 'warning';
+        this.message = 'pseudo et matricule identique';
+        return true;
+      } else {
+        this.err = false;
+        return false;
+      }
+  }
   submit() {
     this.data
       .insertNewCollegue(
@@ -39,13 +52,10 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
           }, 1000);
         },
         error => {
-          this.type = 'warning';
+          this.type = 'danger';
           this.message = error.error;
           this.err = true;
         }
       );
-  }
-  close(){
-    this.err = false;
   }
 }
