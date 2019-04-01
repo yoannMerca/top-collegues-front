@@ -11,8 +11,15 @@ export class CompteurVotesComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.compteur = 0;
-    this.data.listerVotes().subscribe(() => this.compteur++,
+    if (localStorage.getItem('compteur') != null) {
+      this.compteur = Number(localStorage.getItem('compteur'));
+    } else {
+      this.compteur = 0;
+    }
+    this.data.listerVotes().subscribe(() => {
+      this.compteur++ ,
+      localStorage.setItem('compteur', this.compteur.toString());
+    },
       () => alert('observable mal passe'),
     );
   }
