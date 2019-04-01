@@ -3,9 +3,7 @@
   <div class="form-group">
     <label>Matricule</label><input class="form-control form-control-lg" type="text" name="matricule" formControlName="matricule">
   </div>
-  <p *ngIf="err || check(form.errors) ">
-    <ngb-alert [type]="type" [dismissible]="false">{{ message }}</ngb-alert>
-  </p>
+
   <div class="form-group">
     <label>Pseudo</label><input class="form-control form-control-lg" type="text" name="pseudo" formControlName="pseudo">
   </div>
