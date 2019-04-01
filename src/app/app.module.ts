@@ -12,12 +12,13 @@ import { HistoriqueVotesComponent } from './historique-votes/historique-votes.co
 import { CompteurVotesComponent } from './compteur-votes/compteur-votes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NouveauCollegueTemplateFormComponent } from './nouveau-collegue-template-form/nouveau-collegue-template-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PseudoMatriculeValidatorDirective } from './validators/pseudo-matricule-validator.directive';
 import { MenuComponent } from './menu/menu.component';
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { DescriptionComponent } from './description/description.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +33,15 @@ import { DescriptionComponent } from './description/description.component';
     NouveauCollegueTemplateFormComponent,
     PseudoMatriculeValidatorDirective,
     MenuComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],
