@@ -23,5 +23,4 @@ export class CompteurVotesComponent implements OnInit {
       () => alert('observable mal passe'),
     );
   }
-
 }
